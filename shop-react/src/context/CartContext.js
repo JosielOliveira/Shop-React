@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, useEffect } from 'react';
 
 // Crear contexto
 const CartContext = createContext();
@@ -27,7 +27,7 @@ export const CartProvider = ({ children }) => {
   });
 
   // Persistir el carrito en localStorage
-  React.useEffect(() => {
+  useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(state));
   }, [state]);
 
